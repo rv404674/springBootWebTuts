@@ -1,5 +1,6 @@
 package com.rahul.springbootapp;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -8,11 +9,15 @@ import org.springframework.stereotype.Component;
 // for prototype, a new bean will be created everytime a request is made for that bean.
 // and object wont be created automatically, it will be only created when it is requested for.
 @Component
-@Scope(value="prototype")
+//@Scope(value="prototype")
 public class Alien {
     private int aid;
     private String aName;
     private String tech;
+
+    // Autowired searches by type.
+    @Autowired
+    private Laptop laptop;
 
     // constructor
     public Alien(){
@@ -45,5 +50,6 @@ public class Alien {
 
     public void show(){
         System.out.println("Hey I am an alien");
+        laptop.compile();
     }
 }

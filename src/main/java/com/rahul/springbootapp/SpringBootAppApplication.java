@@ -11,6 +11,7 @@ public class SpringBootAppApplication {
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootAppApplication.class, args);
 
         Alien alien = context.getBean(Alien.class);
+        alien.show();
 
         Alien alien2 = context.getBean(Alien.class);
     }
